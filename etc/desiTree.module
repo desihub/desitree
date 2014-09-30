@@ -56,7 +56,6 @@ if {{[info exists env(DESI_PRODUCT_ROOT)]}} {{
     set PRODUCT_ROOT $env(DESI_PRODUCT_ROOT)
 }} else {{
     set PRODUCT_ROOT /project/projectdirs/desi/software/$env(NERSC_HOST)
-    setenv DESI_PRODUCT_ROOT PRODUCT_ROOT
 }}
 
 set PRODUCT_DIR $PRODUCT_ROOT/$product/$version
