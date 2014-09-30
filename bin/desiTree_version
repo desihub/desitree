@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Prints the version of this product on the command line.
+#
+# $Id$
+#
+vers=$(basename ${DESITREE})
+echo ${vers}
