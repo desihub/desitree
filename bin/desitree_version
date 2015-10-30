@@ -1,5 +1,0 @@
-#!/bin/sh
-#
-# Prints the version of this product on the command line.
-#
-basename ${DESITREE}

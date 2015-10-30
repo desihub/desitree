@@ -78,17 +78,19 @@ setenv [string toupper $product] $PRODUCT_DIR
 # Add any non-standard Module code below this point.
 #
 if {{[info exists env(NERSC_HOST)]}} {{
-    set DESI_ROOT /project/projectdirs/desi
+    set desi_root /project/projectdirs/desi
+    setenv DESI_ROOT $desi_root
+    setenv DESI_IMAGING_DATA $desi_root/imaging/data
+    setenv DESI_MOCKS $desi_root/mocks
+    setenv DESI_SPECTRO_DATA $desi_root/spectro/data
+    setenv DESI_SPECTRO_REDUX $desi_root/spectro/redux
+    setenv DESI_SPECTRO_SIM $desi_root/spectro/sim
+    setenv DESI_TARGET $desi_root/target
+    setenv DESI_WWW $desi_root/www
+    setenv PIXPROD $env(USER)
+    setenv SPECPROD $env(USER)
+    setenv PRODNAME $env(USER)
 }}
 #
 # Handle non-NERSC setups
 #
-#
-# Define everything relative to DESI_ROOT.
-#
-setenv DESI_ROOT $DESI_ROOT
-setenv DESI_IMAGING_DATA $DESI_ROOT/imaging/data
-setenv DESI_MOCKS $DESI_ROOT/mocks
-setenv DESI_SPECTRO_DATA $DESI_ROOT/spectro/data
-setenv DESI_TARGET $DESI_ROOT/target
-setenv DESI_WWW $DESI_ROOT/www
