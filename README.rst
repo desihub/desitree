@@ -11,7 +11,7 @@ directories to environment variables.
 Change Log
 -----------
 
-0.6.0 (unreleased)
+0.6.0 (2021-11-03)
 ~~~~~~~~~~~~~~~~~~
 
 * Define ``${DESI_ROOT}`` external to this module file for compatibility with
