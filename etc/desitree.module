@@ -76,19 +76,16 @@ setenv [string toupper $product] $PRODUCT_DIR
 #
 # Add any non-standard Module code below this point.
 #
-if {{[info exists env(NERSC_HOST)]}} {{
-    set desi_root /global/cfs/cdirs/desi
-    setenv DESI_ROOT $desi_root
-    setenv DESI_MOCKS $desi_root/mocks
-    setenv DESI_SPECTRO_DATA $desi_root/spectro/data
-    setenv DESI_SPECTRO_REDUX $desi_root/spectro/redux
-    setenv DESI_SPECTRO_SIM $desi_root/spectro/sim
-    setenv DESI_TARGET $desi_root/target
-    setenv DESI_WWW $desi_root/www
+if {{[info exists env(DESI_ROOT)]}} {{
+    set root $env(DESI_ROOT)
+    setenv DESI_MOCKS $root/mocks
+    setenv DESI_SPECTRO_DATA $root/spectro/data
+    setenv DESI_SPECTRO_REDUX $root/spectro/redux
+    setenv DESI_SPECTRO_SIM $root/spectro/sim
+    setenv DESI_SURVEYOPS $root/survey/ops/surveyops/trunk
+    setenv DESI_TARGET $root/target
+    setenv DESI_WWW $root/www
     setenv PIXPROD $env(USER)
     setenv SPECPROD $env(USER)
     setenv PRODNAME $env(USER)
 }}
-#
-# Handle non-NERSC setups
-#
