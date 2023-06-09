@@ -1,0 +1,119 @@
+#%Module1.0
+# The first line of this file tells Modules that this is a module file.
+# DO NOT ALTER IT!
+#
+# ABOUT THIS FILE
+#
+# This file is designed to be processed by Python.  Specifically, this file
+# will be read into a string, and the .format() method will be applied to it.
+# This file is not a valid module file on its own.
+#
+# METADATA AND DOCUMENTATION SECTION
+#
+# This function is part of the Modules help system.  You can modify
+# the second line if needed, but most products should
+# leave this alone.
+#
+proc ModulesHelp { } {
+    global product version
+    puts stderr "This module adds $product/$version to your environment."
+}
+#
+# These variables are used below.  The product variable should be set to
+# the name of the product and never changed.  The version variable will
+# be set at install time, so it should be left alone.  The conflict line
+# prevents multiple versions from being loaded simultaneously.  Do not
+# change it.
+#
+set product desitree
+set version edr
+conflict $product
+#
+# The line below is another part of the Modules help system.  You can
+# modify the part in quotes if you really need to, but most products should
+# leave this alone.
+#
+module-whatis "Sets up $product/$version in your environment."
+#
+# DEPENDENCIES SECTION
+#
+# If your product requires other software to function, that should be declared
+# here.  There are two types of dependencies: mandatory and optional.
+# A mandatory dependency is a module load command followed by a prereq
+# command.  An optional dependency is not followed by a prereq statement.
+#
+# module load desiutil
+# prereq desiutil
+#
+# ENVIRONMENT SECTION
+#
+# The PRODUCT_ROOT and PRODUCT_DIR variables are used to set other
+# environment variables but are not exported to the actual environment.
+# If you are not working at NERSC, but still want to use Modules, you
+# will need to set the DESI_PRODUCT_ROOT environment variable
+#
+if {[info exists env(DESI_PRODUCT_ROOT)]} {
+    set code_root $env(DESI_PRODUCT_ROOT)/code
+} else {
+    set code_root /global/common/software/desi/perlmutter/desiconda/20230111-2.1.0/code
+}
+set PRODUCT_DIR $code_root/$product/$version
+#
+# This line creates an environment variable pointing to the install
+# directory of your product.
+#
+setenv [string toupper $product] $PRODUCT_DIR
+#
+# The lines below set various other environment variables.  They assume the
+# template product layout.  These will be set or commented as needed by the
+# desiInstall script.
+#
+# prepend-path PATH $PRODUCT_DIR/bin
+# prepend-path PYTHONPATH $PRODUCT_DIR/lib/python3.10/site-packages
+# prepend-path PYTHONPATH $PRODUCT_DIR/py
+# prepend-path LD_LIBRARY_PATH $PRODUCT_DIR/lib
+# prepend-path IDL_PATH +$PRODUCT_DIR/pro
+#
+# Add any non-standard Module code below this point.
+#
+# if {[info exists env(DESI_ROOT)]} {
+#     set root $env(DESI_ROOT)
+#     setenv DESI_MOCKS $root/mocks
+#     setenv DESI_SPECTRO_DATA $root/spectro/data
+#     setenv DESI_SPECTRO_REDUX $root/spectro/redux
+#     setenv DESI_SPECTRO_SIM $root/spectro/sim
+#     setenv DESI_SURVEYOPS $root/survey/ops/surveyops/trunk
+#     setenv DESI_TARGET $root/target
+#     setenv DESI_WWW $root/www
+#     setenv PIXPROD $env(USER)
+#     setenv SPECPROD $env(USER)
+#     setenv PRODNAME $env(USER)
+# }
+set root /global/cfs/cdirs/desi/public/edr
+set spectro $root/spectro
+set target $root/target
+pushenv DESI_ROOT $root
+pushenv DESI_SPECTRO_CALIB $spectro/desi_spectro_calib/0.3.1
+pushenv DESI_SPECTRO_DATA $spectro/data
+pushenv DESI_SPECTRO_REDUX $spectro/redux
+# Placeholder for DR1
+# pushenv DESI_SPECTRO_DARK $spectro/desi_spectro_dark/v2209
+pushenv DESI_SURVEYOPS $root/survey/ops/surveyops/tags/0.1
+pushenv DESI_TARGET $target
+pushenv DESI_BASIS_TEMPLATES $spectro/templates/basis_templates/v3.2
+pushenv TARG_DIR $target/catalogs
+pushenv SCND_DIR $target/secondary
+pushenv MASK_DIR $target/masks
+pushenv QN_MODEL_FILE $target/catalogs/lya/qn_models/qn_train_coadd_indtrain_0_0_boss10.h5
+pushenv SKYBRICKS_DIR $target/skybricks/v3
+# pushenv PIXPROD fuji
+pushenv SPECPROD fuji
+# pushenv PRODNAME fuji
+# pushenv TYCHO_DIR ""
+# pushenv GAIA_DIR ""
+# pushenv URAT_DIR ""
+# pushenv MTL_DIR ""
+# pushenv ZCAT_DIR ""
+# pushenv TOO_DIR ""
+# pushenv CMX_DIR ""
+# pushenv SQ_MODEL_FILE ""
