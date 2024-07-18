@@ -82,7 +82,6 @@ if {{[info exists env(DESI_ROOT)]}} {{
     setenv DESI_SPECTRO_DATA $root/spectro/data
     setenv DESI_SPECTRO_REDUX $root/spectro/redux
     setenv DESI_SPECTRO_SIM $root/spectro/sim
-    setenv DESI_SURVEYOPS $root/survey/ops/surveyops/trunk
     setenv DESI_TARGET $root/target
     setenv DESI_WWW $root/www
     setenv PIXPROD $env(USER)
