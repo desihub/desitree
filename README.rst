@@ -11,6 +11,13 @@ directories to environment variables.
 Change Log
 -----------
 
+0.7.0 (2024-07-19)
+~~~~~~~~~~~~~~~~~~
+
+* Remove ``DESI_SURVEYOPS``, which will now be defined by ``desimodules`` (PR `#9`_).
+
+.. _`#9`: https://github.com/desihub/desitree/pull/9
+
 0.6.0 (2021-11-03)
 ~~~~~~~~~~~~~~~~~~
 
