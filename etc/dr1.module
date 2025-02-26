@@ -26,7 +26,7 @@ proc ModulesHelp { } {
 # change it.
 #
 set product desitree
-set version edr
+set version dr1
 conflict $product
 #
 # The line below is another part of the Modules help system.  You can
@@ -55,7 +55,7 @@ module-whatis "Sets up $product/$version in your environment."
 if {[info exists env(DESI_PRODUCT_ROOT)]} {
     set code_root $env(DESI_PRODUCT_ROOT)/code
 } else {
-    set code_root /global/common/software/desi/perlmutter/desiconda/20220119-2.0.1/code
+    set code_root /global/common/software/desi/perlmutter/desiconda/20230111-2.1.0/code
 }
 set PRODUCT_DIR $code_root/$product/$version
 #
@@ -93,12 +93,12 @@ set root /global/cfs/cdirs/desi/public/edr
 set spectro $root/spectro
 set target $root/target
 pushenv DESI_ROOT $root
-pushenv DESI_SPECTRO_CALIB $spectro/desi_spectro_calib/0.3.1
+pushenv DESI_SPECTRO_CALIB $spectro/desi_spectro_calib/0.4.0
 pushenv DESI_SPECTRO_DATA $spectro/data
 pushenv DESI_SPECTRO_REDUX $spectro/redux
 # Placeholder for DR1
 # pushenv DESI_SPECTRO_DARK $spectro/desi_spectro_dark/v2209
-pushenv DESI_SURVEYOPS $root/survey/ops/surveyops/tags/0.1
+pushenv DESI_SURVEYOPS $root/survey/ops/surveyops/tags/1.0
 pushenv DESI_TARGET $target
 pushenv DESI_BASIS_TEMPLATES $spectro/templates/basis_templates/v3.2
 pushenv TARG_DIR $target/catalogs
@@ -106,9 +106,9 @@ pushenv SCND_DIR $target/secondary
 pushenv MASK_DIR $target/masks
 pushenv QN_MODEL_FILE $target/catalogs/lya/qn_models/qn_train_coadd_indtrain_0_0_boss10.h5
 pushenv SKYBRICKS_DIR $target/skybricks/v3
-# pushenv PIXPROD fuji
-pushenv SPECPROD fuji
-# pushenv PRODNAME fuji
+# pushenv PIXPROD iron
+pushenv SPECPROD iron
+# pushenv PRODNAME iron
 # pushenv TYCHO_DIR ""
 # pushenv GAIA_DIR ""
 # pushenv URAT_DIR ""
